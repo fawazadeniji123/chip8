@@ -1,0 +1,56 @@
+; 0x00E0 - clear the display
+; 0x00EE - return from a subroutine
+; 0x1NNN - jump to address NNN
+; 0x2NNN - call subroutine at NNN
+; 0x3XNN - skip the next instruction if VX equals NN
+; 0x4XNN - skip the next instruction if VX doesn't equal NN
+; 0x5XY0 - skip the next instruction if VX equals VY
+; 0x6XNN - set VX to NN
+; 0x7XNN - add NN to VX
+; 0x8XY0 - set VX to the value of VY
+; 0x8XY1 - set VX to VX or VY
+; 0x8XY2 - set VX to VX and VY
+; 0x8XY3 - set VX to VX xor VY
+; 0x8XY4 - add VY to VX, set VF to 1 if there is a carry, 0 otherwise
+; 0x8XY5 - subtract VY from VX, set VF to 0 if there is a borrow, 1 otherwise
+; 0x8XY6 - shift VX right by one, set VF to the least significant bit of VX before the shift
+; 0x8XY7 - set VX to VY minus VX, set VF to 0 if there is a borrow, 1 otherwise
+; 0x8XYE - shift VX left by one, set VF to the most significant bit of VX before the shift
+; 0x9XY0 - skip the next instruction if VX doesn't equal VY
+; 0xANNN - set I to the address NNN
+; 0xBNNN - jump to the address NNN plus V0
+; 0xCXNN - set VX to a random number and NN
+; 0xDXYN - draw a sprite at coordinate (VX, VY) that has a width of 8 pixels and a height of N pixels
+; each row of 8 pixels is read as bit-coded starting from memory location I
+; I value doesn't change after the execution of this instruction
+; VF is set to 1 if any screen pixels are flipped from set to unset when the sprite is drawn, and to 0 otherwise
+; 0xEX9E - skip the next instruction if the key stored in VX is pressed
+; 0xEXA1 - skip the next instruction if the key stored in VX isn't pressed
+; 0xFX07 - set VX to the value of the delay timer
+; 0xFX0A - wait for a key press and store the result in VX
+; 0xFX15 - set the delay timer to VX
+; 0xFX18 - set the sound timer to VX
+; 0xFX1E - add VX to I
+; 0xFX29 - set I to the location of the sprite for the character in VX
+; characters 0-F are represented by a 4x5 font
+; 0xFX33 - store the binary-coded decimal representation of VX at the addresses I, I+1, and I+2
+; 0xFX55 - store V0 to VX in memory starting at address I
+; I is set to I + X + 1 after the operation
+; 0xFX65 - fill V0 to VX with values from memory starting at address I
+; I is set to I + X + 1 after the operation
+
+; write a program that prints 1 on the display of my chip8 emulator using its instruction set
+; in this file ';' is a comment and each line is an operation instruction
+0x600F ; set V0 to 15
+0x610F ; set V1 to 15
+0xA000 ; set I to 0x000
+0xD015 ; draw a sprite at (V0, V1) with a height of 5 pixels
+0x1200 ; jump to 0x200
+
+
+
+
+
+
+
+
