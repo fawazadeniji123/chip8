@@ -37,13 +37,14 @@ To build the interpreter, you will need the following:
 - A C compiler (gcc, clang, etc.)
 - GNU Make
 - SDL2
+- ALSA (Linux only)
 
 ### Ubuntu
 
 To install the required libraries on Ubuntu, run the following command:
 
 ```bash
-sudo apt-get install build-essential libsdl2-dev 
+sudo apt-get install build-essential libsdl2-dev libasound2-dev
 ```
 
 ### Fedora
@@ -51,7 +52,7 @@ sudo apt-get install build-essential libsdl2-dev
 To install the required libraries on Fedora, run the following command:
 
 ```bash
-sudo dnf install SDL2-devel
+sudo dnf install SDL2-devel alsa-lib-devel
 ```
 
 ### Arch Linux
@@ -59,7 +60,7 @@ sudo dnf install SDL2-devel
 To install the required libraries on Arch Linux, run the following command:
 
 ```bash
-sudo pacman -S sdl2 
+sudo pacman -S sdl2  alsa-lib
 ```
 
 ### macOS
@@ -67,7 +68,7 @@ sudo pacman -S sdl2
 To install the required libraries on macOS, run the following command:
 
 ```bash
-brew install sdl2 
+brew install sdl2 alsa-lib
 ```
 
 ## Building
